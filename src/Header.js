@@ -9,7 +9,6 @@ function Header() {
   const [{basket,user}, dispatch]=useStateValue();
   
   return (
-
     <div className='header'>
       <Link to="/">
       <img className='header__logo' src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" />
@@ -19,7 +18,6 @@ function Header() {
         <input className='header__searchInput' type="text"/>
       <SearchIcon className='header__searchIcon'/>
      </div>
-
     <div className='header__nav'>
         <Link to='/login'>
         <div className='header__option'>
@@ -47,5 +45,4 @@ function Header() {
     </div>
   )
 }
-
 export default Header
