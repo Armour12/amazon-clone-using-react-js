@@ -7,13 +7,19 @@ function Login() {
     const[password,setPassword]=useState('');
     const signIn=e=>{
     e.preventDefault()
+    auth.signInWithEmailAndPassword(email,password).auth(auth =>{
+        history.pushState('/')
+    }).catch(error=>alert(error.message))
     
     }
     const register=e=>{
         e.preventDefault()
         auth.createUserWithEmailAndPassword(email,password).then((auth)=>{
             console.log(auth);
-        });
+            if(auth){
+                history.pushState('/');
+            }
+        }).catch(error=>alert(error.message));
     }
         
     return (

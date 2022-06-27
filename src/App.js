@@ -5,7 +5,24 @@ import Header from './Header';
 import Home from './Home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Checkout from './Checkout';
+import { auth } from './firebase';
 function App() {
+useEffect(()=>{
+//will only run once when the app component loads....
+auth.onAuthStateChanged(authUser=>{
+  console.log('The User is >>>> ',authUser);
+  if(authUser)
+  {
+
+  }
+  else{
+
+    
+  }
+})
+
+},[])
+
   return (    
     <Router>
       <div className="app">
