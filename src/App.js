@@ -7,17 +7,28 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Checkout from './Checkout';
 import { auth } from './firebase';
 function App() {
+
+const [{},dispatch]=useStateValue();
+
+
+
 useEffect(()=>{
 //will only run once when the app component loads....
 auth.onAuthStateChanged(authUser=>{
   console.log('The User is >>>> ',authUser);
   if(authUser)
   {
-
+      dispatch({
+        type:'SET_USER',
+        user:authUser   
+      })
   }
   else{
+    dispatch({
+      type:'SET_USER',
+      user:null
+    })
 
-    
   }
 })
 
